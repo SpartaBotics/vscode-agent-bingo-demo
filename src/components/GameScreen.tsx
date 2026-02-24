@@ -17,33 +17,29 @@ export function GameScreen({
   onReset,
 }: GameScreenProps) {
   return (
-    <div className="flex flex-col min-h-full bg-gray-50">
-      {/* Header */}
-      <header className="flex items-center justify-between p-3 bg-white border-b border-gray-200">
+    <div className="flex min-h-full flex-col bg-transparent">
+      <header className="mx-4 mt-4 flex items-center justify-between rounded-xl border border-border-subtle/95 bg-bg-panel/85 p-3 shadow-neon">
         <button
           onClick={onReset}
-          className="text-gray-500 text-sm px-3 py-1.5 rounded active:bg-gray-100"
+          className="rounded-lg border border-border-subtle px-3 py-1.5 text-sm font-semibold tracking-wide text-text-muted transition-colors hover:text-accent active:bg-bg-panel-soft"
         >
           ← Back
         </button>
-        <h1 className="font-bold text-gray-900">Soc Ops</h1>
-        <div className="w-16"></div>
+        <h1 className="neon-heading font-display text-base font-bold uppercase tracking-[0.16em] text-text-primary">Soc Ops</h1>
+        <div className="w-16" />
       </header>
 
-      {/* Instructions */}
-      <p className="text-center text-gray-500 text-sm py-2 px-4">
-        Tap a square when you find someone who matches it.
+      <p className="px-6 py-3 text-center text-sm font-medium tracking-wide text-text-muted">
+        Match a person to a prompt, then activate that square.
       </p>
 
-      {/* Bingo indicator */}
       {hasBingo && (
-        <div className="bg-amber-100 text-amber-800 text-center py-2 font-semibold text-sm">
-          🎉 BINGO! You got a line!
+        <div className="mx-4 rounded-lg border border-bingo/70 bg-bingo/12 py-2 text-center text-sm font-display font-semibold uppercase tracking-[0.17em] text-bingo shadow-[0_0_20px_rgb(255_79_216_/_0.26)] animate-reveal">
+          ✦ Bingo Line Locked In ✦
         </div>
       )}
 
-      {/* Board */}
-      <div className="flex-1 flex items-center justify-center p-3">
+      <div className="flex flex-1 items-center justify-center p-4 sm:p-6">
         <BingoBoard
           board={board}
           winningSquareIds={winningSquareIds}

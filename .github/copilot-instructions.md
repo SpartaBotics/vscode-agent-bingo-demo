@@ -28,6 +28,16 @@
 - Prefer existing theme tokens (for example `bg-accent`, `bg-marked`) over new hardcoded color classes.
 - Use utility classes directly in components; avoid introducing a separate CSS architecture unless needed.
 
+## Design guide
+- Current visual direction is **Cyberpunk Neon**: dark atmospheric backgrounds, cyan/magenta accents, and high-contrast UI states.
+- Treat `src/index.css` as the single source of truth for design tokens (`@theme`) and shared effect classes (`cyber-panel`, `neon-button`, `neon-heading`, `cyber-grid`).
+- Prefer token-driven classes (`bg-bg-panel`, `text-text-muted`, `border-border-subtle`, `text-bingo`) over raw Tailwind color scales.
+- Typography hierarchy: use `font-display` for titles/labels that need futuristic emphasis, and `font-body` for interaction copy and body text.
+- Motion should stay medium and purposeful (reveal/focus/celebration), avoiding excessive animation on frequently tapped elements.
+- Preserve gameplay readability first: marked, winning, and free-space states must remain immediately distinguishable at mobile sizes.
+- For new UI surfaces, match the existing panel language (rounded neon-bordered cards, subtle glow, glass-like layers) before introducing new visual motifs.
+- Keep accessibility in mind when extending the theme: maintain strong contrast and clear button affordances despite neon effects.
+
 ## Tests and quality gates
 - Vitest runs in `jsdom` with global APIs enabled; setup is in `src/test/setup.ts`.
 - Existing tests in `src/utils/bingoLogic.test.ts` emphasize pure logic contracts; follow this pattern for behavior changes.

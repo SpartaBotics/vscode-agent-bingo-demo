@@ -4,26 +4,31 @@ interface StartScreenProps {
 
 export function StartScreen({ onStart }: StartScreenProps) {
   return (
-    <div className="flex flex-col items-center justify-center min-h-full p-6 bg-gray-50">
-      <div className="text-center max-w-sm">
-        <h1 className="text-4xl font-bold text-gray-900 mb-2">Soc Ops</h1>
-        <p className="text-lg text-gray-600 mb-8">Social Bingo</p>
-        
-        <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 mb-8">
-          <h2 className="font-semibold text-gray-800 mb-3">How to play</h2>
-          <ul className="text-left text-gray-600 text-sm space-y-2">
-            <li>• Find people who match the questions</li>
-            <li>• Tap a square when you find a match</li>
-            <li>• Get 5 in a row to win!</li>
-          </ul>
-        </div>
+    <div className="flex min-h-full items-center justify-center p-5 sm:p-8">
+      <div className="w-full max-w-md animate-float">
+        <div className="cyber-panel rounded-2xl p-6 sm:p-8 text-center">
+          <p className="mb-2 text-xs font-semibold tracking-[0.26em] text-accent/85">SESSION PROTOCOL</p>
+          <h1 className="neon-heading mb-2 font-display text-4xl sm:text-5xl font-bold uppercase tracking-[0.07em] text-text-primary">
+            Soc Ops
+          </h1>
+          <p className="mb-7 text-lg font-semibold text-bingo/90">Social Bingo</p>
 
-        <button
-          onClick={onStart}
-          className="w-full bg-accent text-white font-semibold py-4 px-8 rounded-lg text-lg active:bg-accent-light transition-colors"
-        >
-          Start Game
-        </button>
+          <div className="rounded-xl border border-border-subtle/90 bg-bg-panel-soft/75 p-5 text-left">
+            <h2 className="mb-3 font-display text-sm font-semibold uppercase tracking-[0.2em] text-accent">How to play</h2>
+            <ul className="space-y-2 text-base text-text-muted">
+              <li>• Find people who match the prompts</li>
+              <li>• Tap each square when you get a match</li>
+              <li>• Complete five in a row to hit BINGO</li>
+            </ul>
+          </div>
+
+          <button
+            onClick={onStart}
+            className="neon-button mt-7 w-full rounded-xl px-8 py-3.5 text-lg font-display font-semibold uppercase tracking-[0.18em] text-text-primary"
+          >
+            Initialize Game
+          </button>
+        </div>
       </div>
     </div>
   );
